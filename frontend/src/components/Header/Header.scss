@@ -30,32 +30,33 @@
     font-size: 18px;
     text-align: start;
   }
-
   &__center {
+    position: relative;
     font-weight: 500;
     font-size: 16px;
     letter-spacing: -0.02em;
     text-decoration: underline;
     text-decoration-skip-ink: none;
     transition: color 0.2s ease;
+    cursor: pointer;
   }
 
-  &__center:hover {
+  &__center-label:hover {
     color: var(--highlight-color);
   }
 
   &__nav {
     position: absolute;
-    text-align: center;
-    top: 100%;
-    left: 0;
-    width: 100%;
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+    margin-left: 150px;
   }
-
   &__nav-list {
     display: flex;
-    flex-direction: column;
-    gap: 5px;
+    gap: 32px;
+    list-style: none;
+    white-space: nowrap;
   }
 
   &__nav-item:hover {
@@ -78,5 +79,27 @@
 
   &__button:hover {
     background-color: #a8c220;
+  }
+
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  &__nav-item {
+    opacity: 0;
+    animation: fadeInLeft 0.5s ease forwards;
+
+    @for $i from 1 through 4 {
+      &:nth-child(#{$i}) {
+        animation-delay: #{$i * 0.15}s;
+      }
+    }
   }
 }

@@ -1,0 +1,48 @@
+// імпорт шрифту з Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600&display=swap');
+
+:root {
+  --background: #1c1d20;
+  --cards: #242527;
+  --arrow: #3b3b3b;
+  --highlight-color: #c6e327;
+  --main-text: #fafafa;
+  --font-family: 'Inter Tight', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  cursor: pointer;
+}
+
+body {
+  padding: 0 32px;
+  color: var(--main-text);
+  background-color: var(--background);
+  font-family: var(--font-family);
+}

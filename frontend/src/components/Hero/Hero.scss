@@ -1,0 +1,81 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0 -32px;
+
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+
+  &__title {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 180px;
+    font-weight: 500;
+    font-size: 90px;
+    line-height: 110%;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+  }
+
+  &__contacts {
+    position: absolute;
+    bottom: 32px;
+    right: 32px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__contacts-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(250, 250, 250, 0.2);
+    border-radius: 60px;
+    width: 55px;
+    height: 55px;
+    transition:
+      border 0.2s ease,
+      color 0.2s ease;
+
+    &:hover {
+      border: 1px solid var(--highlight-color);
+      color: var(--highlight-color);
+    }
+  }
+
+  &__contacts-icon {
+    width: 25px;
+    height: 25px;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(250, 250, 250, 0.2);
+    border-radius: 60px;
+    padding: 18px 24px;
+    width: 270px;
+    height: 55px;
+    font-weight: 500;
+    font-size: 16px;
+    transition:
+      border 0.2s ease,
+      color 0.2s ease;
+
+    &:hover {
+      border: 1px solid var(--highlight-color);
+      color: var(--highlight-color);
+    }
+  }
+}

@@ -26,6 +26,7 @@
     display: flex;
     width: 100%;
     max-width: 1400px;
+    height: 600px;
     justify-content: center;
     margin: 0 auto;
   }
@@ -66,13 +67,19 @@
     letter-spacing: -0.03em;
     color: var(--background);
     max-width: 600px;
-    padding: 100px 64px 0px 64px;
+    padding: 50px 64px 0px 64px;
+  }
+
+  &__links {
+    display: flex;
+    gap: 10px;
+    align-items: center;
   }
 
   &__left-button {
     border-radius: 60px;
     padding: 18px 30px;
-    margin: 20px 64px;
+    margin: 20px 0 20px 64px;
     width: 140px;
     height: 55px;
     background-color: var(--highlight-color);
@@ -83,10 +90,23 @@
     }
   }
 
+  &__links-icon {
+    width: 35px;
+    height: 35px;
+    color: var(--cards);
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--highlight-color);
+    }
+  }
+
   &__right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: var(--cards);
     border-radius: 0 24px 24px 0;
-    padding: 150px 35px;
     width: 50%;
   }
 
@@ -95,6 +115,7 @@
     display: flex;
     justify-content: center;
     gap: 10px;
+    padding: 5px 15px;
     max-width: 615px;
     max-height: 385px;
   }

@@ -47,3 +47,10 @@ body {
   background-color: var(--background);
   font-family: var(--font-family);
 }
+
+input {
+  outline: none;
+  color: var(--main-text);
+  font-size: 16px;
+  font-family: var(--font-family);
+}

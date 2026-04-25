@@ -1,10 +1,12 @@
 import './Footer.scss';
+import toast from 'react-hot-toast';
 import logo from '../../images/my-photo.jpeg';
 import { useState } from 'react';
 import { IoIosClose } from 'react-icons/io';
 
 function Footer() {
   const [email, setEmail] = useState('');
+  const [comment, setComment] = useState('');
   const [emailError, setEmailError] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -13,14 +15,31 @@ function Footer() {
     return regex.test(value);
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     if (!validateEmail(email)) {
       setEmailError('Invalid email, try again');
       return;
     }
     setEmailError('');
-    setIsModalOpen(true);
+
+    try {
+      const response = await fetch('http://localhost:5001/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, comment }),
+      });
+
+      if (response.ok) {
+        setIsModalOpen(true);
+        setEmail('');
+        setComment('');
+      } else {
+        toast.error('Something went wrong, try again');
+      }
+    } catch (error) {
+      toast.error('Server error, try again later');
+    }
   };
 
   return (
@@ -50,7 +69,11 @@ function Footer() {
             <span className='footer__success'>Success!</span>
           )}
         </div>
-        <input placeholder='comments' />
+        <input
+          value={comment}
+          onChange={e => setComment(e.target.value)}
+          placeholder='comments'
+        />
 
         <button type='submit'>Send</button>
       </form>

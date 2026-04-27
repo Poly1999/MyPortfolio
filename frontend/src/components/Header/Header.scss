@@ -50,7 +50,7 @@
     top: 50%;
     left: 100%;
     transform: translateY(-50%);
-    margin-left: 150px;
+    margin-left: 50px;
   }
   &__nav-list {
     display: flex;
@@ -100,6 +100,94 @@
       &:nth-child(#{$i}) {
         animation-delay: #{$i * 0.15}s;
       }
+    }
+  }
+
+  // burger
+
+  &__burger {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--main-text);
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  // mobile menu
+  &__mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--background);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-image: url('../../images/hero-background.png');
+    background-size: cover;
+    background-position: center;
+  }
+
+  &__mobile-close {
+    position: absolute;
+    top: 32px;
+    right: 32px;
+    background: transparent;
+    border: none;
+    color: var(--main-text);
+    font-size: 32px;
+    cursor: pointer;
+  }
+
+  &__mobile-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    a {
+      font-size: 16px;
+      letter-spacing: -0.02em;
+      text-decoration: underline;
+      text-decoration-skip-ink: none;
+
+      &:hover {
+        color: var(--highlight-color);
+      }
+    }
+  }
+
+  &__mobile-btn {
+    position: absolute;
+    border-radius: 60px;
+    padding: 14px 31px;
+    width: 164px;
+    height: 45px;
+    font-size: 14px;
+    letter-spacing: -0.02em;
+    bottom: 80px;
+    color: var(--background);
+    background-color: var(--highlight-color);
+
+    &:hover {
+      background-color: #a8c220;
+    }
+  }
+
+  // media
+  @media (max-width: 1024px) {
+    &__center,
+    &__button {
+      display: none;
+    }
+
+    &__burger {
+      display: block;
     }
   }
 }

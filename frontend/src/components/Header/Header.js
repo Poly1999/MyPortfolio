@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import './Header.scss';
 import logo from '../../images/my-photo.jpeg';
+import { RxHamburgerMenu } from 'react-icons/rx';
+import { IoClose } from 'react-icons/io5';
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <header className='header' id='home'>
@@ -14,6 +17,7 @@ function Header() {
           </a>
           <p className='header__left-text'>pikalova*</p>
         </div>
+
         <p
           className='header__center'
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -41,7 +45,55 @@ function Header() {
         <a href='#projects' className='header__button'>
           My projects
         </a>
+
+        <button
+          className='header__burger'
+          onClick={() => setIsMobileMenuOpen(true)}
+        >
+          <RxHamburgerMenu />
+        </button>
       </div>
+      {isMobileMenuOpen && (
+        <div className='header__mobile-menu'>
+          <button
+            className='header__mobile-close'
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            <IoClose />
+          </button>
+          <nav className='header__mobile-nav'>
+            <ul className='header__mobile-list'>
+              <li>
+                <a href='#about' onClick={() => setIsMobileMenuOpen(false)}>
+                  About me
+                </a>
+              </li>
+              <li>
+                <a href='#projects' onClick={() => setIsMobileMenuOpen(false)}>
+                  Projects
+                </a>
+              </li>
+              <li>
+                <a href='#faq' onClick={() => setIsMobileMenuOpen(false)}>
+                  FAQ
+                </a>
+              </li>
+              <li>
+                <a href='#contact' onClick={() => setIsMobileMenuOpen(false)}>
+                  Work together
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <a
+            href='#projects'
+            className='header__mobile-btn'
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            My projects
+          </a>
+        </div>
+      )}
     </header>
   );
 }

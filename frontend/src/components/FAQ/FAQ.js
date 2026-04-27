@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './FAQ.scss';
 import { HiChevronUp, HiChevronDown } from 'react-icons/hi';
+import { AnimatePresence, motion } from 'framer-motion';
 
 function FAQ() {
   const [openItems, setOpenItems] = useState({});
@@ -62,9 +63,19 @@ function FAQ() {
                 )}
               </button>
             </div>
-            <div className={`faq__content ${openItems[index] ? 'active' : ''}`}>
-              <p className='faq__answer'>{item.answer}</p>
-            </div>
+            <AnimatePresence>
+              {openItems[index] && (
+                <motion.div
+                  className='faq__content'
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.4, ease: 'easeInOut' }}
+                >
+                  <p className='faq__answer'>{item.answer}</p>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         ))}
       </div>

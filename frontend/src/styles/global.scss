@@ -48,6 +48,12 @@ body {
   font-family: var(--font-family);
 }
 
+@media (max-width: 767px) {
+  body {
+    padding: 0 16px;
+  }
+}
+
 input {
   outline: none;
   color: var(--main-text);

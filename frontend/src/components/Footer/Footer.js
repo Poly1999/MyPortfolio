@@ -24,11 +24,14 @@ function Footer() {
     setEmailError('');
 
     try {
-      const response = await fetch('http://localhost:5001/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, comment }),
-      });
+      const response = await fetch(
+        'https://portfolio-ir79.onrender.com/api/contact',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, comment }),
+        },
+      );
 
       if (response.ok) {
         setIsModalOpen(true);
